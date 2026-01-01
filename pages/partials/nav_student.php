@@ -27,19 +27,9 @@ $initials = strtoupper(substr($userName, 0, 1) . substr(explode(' ', $userName)[
                         <i class="fas fa-folder-open mr-2"></i>Catégories
                     </a>
 
-                    <a href="../student/quizzes.php"
-                        class="<?= ($currentPage ?? '') === 'quizzes' ? 'border-blue-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors">
-                        <i class="fas fa-play-circle mr-2"></i>Passer un Quiz
-                    </a>
-
                     <a href="../student/result.php"
                         class="<?= ($currentPage ?? '') === 'results' ? 'border-blue-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors">
                         <i class="fas fa-chart-line mr-2"></i>Mes Résultats
-                    </a>
-
-                    <a href="../student/history.php"
-                        class="<?= ($currentPage ?? '') === 'history' ? 'border-blue-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors">
-                        <i class="fas fa-history mr-2"></i>Historique
                     </a>
                 </div>
             </div>
@@ -83,17 +73,9 @@ $initials = strtoupper(substr($userName, 0, 1) . substr(explode(' ', $userName)[
                 class="<?= ($currentPage ?? '') === 'categories' ? 'bg-blue-50 border-blue-500 text-blue-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' ?> block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors">
                 <i class="fas fa-folder-open mr-2"></i>Catégories
             </a>
-            <a href="../student/quizzes.php"
-                class="<?= ($currentPage ?? '') === 'quizzes' ? 'bg-blue-50 border-blue-500 text-blue-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' ?> block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors">
-                <i class="fas fa-play-circle mr-2"></i>Passer un Quiz
-            </a>
             <a href="../student/result.php"
                 class="<?= ($currentPage ?? '') === 'results' ? 'bg-blue-50 border-blue-500 text-blue-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' ?> block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors">
                 <i class="fas fa-chart-line mr-2"></i>Mes Résultats
-            </a>
-            <a href="../student/history.php"
-                class="<?= ($currentPage ?? '') === 'history' ? 'bg-blue-50 border-blue-500 text-blue-700' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' ?> block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors">
-                <i class="fas fa-history mr-2"></i>Historique
             </a>
         </div>
     </div>
