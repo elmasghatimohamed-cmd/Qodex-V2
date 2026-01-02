@@ -7,18 +7,22 @@ header('Content-Type: application/json');
 try {
     require_once '../../config/database.php';
     require_once '../../classes/Database.php';
-    require_once '../../classes/Security.php';
-    require_once '../../classes/Category.php';
 
-    if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'etudiant') {
+    if (!isset($_SESSION['user_id'])) {
+        http_response_code(401);
+        echo json_encode(['success' => false]);
+        exit;
+    }
+
+    if ($_SESSION['user_role'] !== 'etudiant') {
+        http_response_code(403);
         echo json_encode([
             'success' => false,
             'error' => 'Non autorisé'
         ]);
-        exit();
+        exit;
     }
 
-    $categoryModel = new Category();
     $db = Database::getInstance();
 
     $sql = "SELECT c.*, COUNT(q.id) as quiz_count

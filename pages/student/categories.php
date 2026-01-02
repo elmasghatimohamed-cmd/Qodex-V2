@@ -57,7 +57,6 @@ require_once '../partials/nav_student.php';
         const errorText = document.getElementById('errorText');
 
         try {
-            console.log('Chargement des catégories...');
 
             const response = await fetch('../../actions/student/show_categories.php', {
                 method: 'GET',
@@ -66,7 +65,6 @@ require_once '../partials/nav_student.php';
                 }
             });
 
-            console.log('Statut de la réponse:', response.status);
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -74,7 +72,6 @@ require_once '../partials/nav_student.php';
             }
 
             const result = await response.json();
-            console.log('Résultat:', result);
 
             loader.classList.add('hidden');
 
@@ -112,7 +109,6 @@ require_once '../partials/nav_student.php';
             }
 
         } catch (error) {
-            console.error('Erreur détaillée:', error);
             loader.classList.add('hidden');
             errorText.textContent = `Impossible de charger les catégories. ${error.message}`;
             errorMessage.classList.remove('hidden');
