@@ -7,21 +7,30 @@ header('Content-Type: application/json');
 try {
     require_once '../../config/database.php';
     require_once '../../classes/Database.php';
-    require_once '../../classes/Security.php';
-    require_once '../../classes/Quiz.php';
     require_once '../../classes/Question.php';
 
-    if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'etudiant') {
+    if (!isset($_SESSION['user_id'])) {
+        http_response_code(401);
+        echo json_encode([
+            'success' => false,
+            'error' => 'Non connecté'
+        ]);
+        exit;
+    }
+
+    if ($_SESSION['user_role'] !== 'etudiant') {
+        http_response_code(403);
         echo json_encode([
             'success' => false,
             'error' => 'Non autorisé'
         ]);
-        exit();
+        exit;
     }
 
     $categoryId = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 0;
 
     if ($categoryId <= 0) {
+        http_response_code(400);
         echo json_encode([
             'success' => false,
             'error' => 'ID de catégorie invalide'
