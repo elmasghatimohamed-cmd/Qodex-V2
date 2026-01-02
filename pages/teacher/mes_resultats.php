@@ -51,14 +51,16 @@ $mesStats = $resultObj->getMyStats($userId);
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-gray-500 text-sm">Quiz Passés</p>
-                        <p class="text-3xl font-bold text-gray-900"><?= $mesStats['total_quiz'] ?? 0 ?></p>
+                        <p class="text-3xl font-bold text-gray-900">
+                            <?= $mesStats['total_quiz'] ?? 0 ?>
+                        </p>
                     </div>
                     <div class="bg-blue-100 p-3 rounded-lg">
                         <i class="fas fa-clipboard-check text-blue-600 text-2xl"></i>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Moyenne -->
             <div class="bg-white rounded-xl shadow-md p-6">
                 <div class="flex items-center justify-between">
@@ -73,7 +75,7 @@ $mesStats = $resultObj->getMyStats($userId);
                     </div>
                 </div>
             </div>
-            
+
             <!-- Meilleur Score -->
             <div class="bg-white rounded-xl shadow-md p-6">
                 <div class="flex items-center justify-between">
@@ -97,7 +99,7 @@ $mesStats = $resultObj->getMyStats($userId);
                     <i class="fas fa-history mr-2 text-indigo-600"></i>Historique
                 </h2>
             </div>
-            
+
             <?php if (empty($mesResultats)): ?>
                 <div class="p-8 text-center">
                     <i class="fas fa-inbox text-6xl text-gray-300 mb-4"></i>
@@ -112,13 +114,14 @@ $mesStats = $resultObj->getMyStats($userId);
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quiz</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Catégorie</th>
                                 <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Score</th>
-                                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Pourcentage</th>
+                                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Pourcentage
+                                </th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
                             <?php foreach ($mesResultats as $resultat): ?>
-                                <?php 
+                                <?php
                                 $pourcentage = ($resultat['score'] / $resultat['total_questions']) * 100;
                                 if ($pourcentage >= 80) {
                                     $colorClass = 'bg-green-100 text-green-800';
@@ -140,7 +143,8 @@ $mesStats = $resultObj->getMyStats($userId);
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 text-center font-bold">
-                                        <?= $resultat['score'] ?>/<?= $resultat['total_questions'] ?>
+                                        <?= $resultat['score'] ?>/
+                                        <?= $resultat['total_questions'] ?>
                                     </td>
                                     <td class="px-6 py-4 text-center">
                                         <span class="px-3 py-1 <?= $colorClass ?> text-sm font-semibold rounded-full">
@@ -161,4 +165,3 @@ $mesStats = $resultObj->getMyStats($userId);
 </div>
 
 <?php include '../partials/footer.php'; ?>
-
